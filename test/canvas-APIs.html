@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas-APIs</title>
+</head>
+<body style="background: slateblue">
+
+<canvas id="canvas">|</canvas>
+
+<button id="save">生成图片</button>
+<br><br>
+
+
+<a href="" download="canvas_love.png" id="save_href">
+    <img src="" id="save_img"/>
+</a>
+    <script>
+		var canvas = document.querySelector('#canvas');
+
+		canvas.width = 400;
+		canvas.height = 400;
+		canvas.style.border = "1px solid red";
+
+		var imgSrc = '../src/assets/imgs/2.jpg';
+
+		var ctx = canvas.getContext("2d");
+		var img = new Image();
+
+		var sx = 0;
+		var sy = 0;
+
+		var room = 8;
+		var sw = canvas.width * room;
+		var sh = canvas.height * room;
+		window.onload = function () {
+			img.src = imgSrc;
+
+			img.onload = function () {
+
+			  console.log( `img: w= ${img.width}; h=${img.height}` )
+			  console.log( `canvas: w= ${canvas.width}; h=${canvas.height}` )
+
+        console.log(sx, sy, sw, sh, 0, 0, canvas.width, canvas.height)
+				ctx.drawImage(img, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+
+				var btnSave = document.getElementById("save");
+
+				btnSave.onclick = function () {
+
+					var saveHref = document.getElementById("save_href");
+
+
+					var img = document.getElementById("save_img");
+
+					var tempSrc = canvas.toDataURL("image/jpeg", 0.1);
+          img.src = tempSrc;
+					saveHref.href = tempSrc;
+
+				};
+			}
+		}
+
+    </script>
+
+</body>
+</html>
