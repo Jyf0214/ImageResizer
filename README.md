@@ -2,7 +2,7 @@
 
 ## 工具地址：
 - 项目浏览器访问项目：
-  [ImageResizer](https//MirrorXu.github.io/projects/imageresizer)
+  [ImageResizer](https://MirrorXu.github.io/projects/imageresizer)
   
   
 - 用户本地生成生成。
